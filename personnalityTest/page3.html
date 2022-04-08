@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>  test de personalite1</title>
+    <link rel="stylesheet" href ="style.css"/>
+
+</head>
+<body>
+    <!--le 3eme caractere:intution sociale-->
+    <!--10 questions chaque question2 reponses:vrai ou faux-->
+<h2>INTUIITION SOCIALE</h2>
+<!--ques1-->
+<p>1. Quand je parle à des gens, je remarque
+    souvent de subtils indices sociaux concernant
+    leurs émotions – la gêne ou la colère, par
+    exemple – avant qu’ils ne prennent eux-mêmes
+    conscience de ces sentiments.</p>
+<form>
+<input type="radio" id="q1r1" name="q1" value="1">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q1r2" name="q1" value="0">
+<label for ="q1r1">faux</label><br>
+</form>
+<!--ques2-->
+<p>2. Je me surprends souvent à noter les
+    expressions faciales et le langage du corps.</p>
+<form>
+<input type="radio" id="q2r1" name="q2" value="1">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q2r2" name="q2" value="0">
+<label for ="q2r1">faux</label><br>
+</form>
+<!--ques3-->
+<p>3. Peu m’importe que je parle aux gens au
+    téléphone ou en face-à-face, puisque voir la
+    personne à qui je parle m’apporte rarement des
+    informations supplémentaires.</p>
+<form>
+<input type="radio" id="q3r1" name="q3" value="0">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q3r2" name="q3" value="1">
+<label for ="q3r1">faux</label><br>
+</form>
+<!--ques4-->
+<p>4. J’ai souvent l’impression d’en savoir plus que
+    les gens sur leurs véritables sentiments.</p>
+<form>
+<input type="radio" id="q4r1" name="q4" value="1">
+<label for="q4r1">vrai</label><br>
+<input type="radio" id="q4r2" name="q4" value="0">
+<label for ="q4r1">faux</label><br>
+</form>
+<!--ques5-->
+<p>5. Je suis souvent surpris(e) quand mon
+    interlocuteur est énervé ou contrarié par ce que
+    j’ai dit, sans raison apparente.</p>
+<form>
+<input type="radio" id="q5r1" name="q5" value="0">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q5r2" name="q5" value="1">
+<label for ="q5r1">faux</label><br>
+</form>
+<!--ques6-->
+<p>6. Au restaurant, je préfère m’asseoir à côté de
+    la personne avec qui je parle, afin de ne pas
+    voir son visage de face.</p>
+<form>
+<input type="radio" id="q6r1" name="q6" value="0">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q6r2" name="q6" value="1">
+<label for ="q6r1">faux</label><br>
+</form>
+<!--ques7-->
+<p>7. Je réagis souvent à l’inconfort ou au désarroi
+    d’autrui sur la base d’une intuition plutôt que
+    d’une discussion explicite.</p>
+<form>
+<input type="radio" id="q7r1" name="q7" value="1">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q7r2" name="q7" value="0">
+<label for ="q7r1">faux</label><br>
+</form>
+<!--ques8-->
+<p>8. Quand je suis dans un lieu public et que j’ai
+    du temps à perdre, j’aime observer les gens qui
+    m’entourent.</p>
+<form>
+<input type="radio" id="q8r1" name="q8" value="1">
+<label for="q8r1">vrai</label><br>
+<input type="radio" id="q8r2" name="q8" value="0">
+<label for ="q8r1">faux</label><br>
+</form>
+<!--ques9-->
+<p>9. Je suis mal à l’aise quand quelqu’un que je
+    connais à peine me regarde droit dans les yeux
+    pendant une conversation.</p>
+<form>
+<input type="radio" id="q9r1" name="q9" value="0">
+<label for="q9r1">vrai</label><br>
+<input type="radio" id="q9r2" name="q9" value="1">
+<label for ="q9r1">faux</label><br>
+</form>
+<!--ques10-->
+<p>10. Je peux souvent déterminer si une personne
+    est gênée par quelque chose rien qu’en la
+    regardant.</p>
+<form>
+<input type="radio" id="q10r1" name="q10" value="1">
+<label for="q10r1">vrai
+</label><br>
+<input type="radio" id="q10r2" name="q10" value="0">
+<label for ="q10r1">faux</label><br>
+</form><br>
+
+<!---->
+<!--resultat du 3eme caractere-->
+<button id="bouton1">Resultat</button>
+<p id="resultat1"></p>
+
+<script>
+/*resultat3:intution sociale*/
+var res = document.getElementById("resultat1");
+var messages = [" vous êtes socialement intuitif/ve.","vous êtes plutôt socialement perplexe.","Plus votre score est élevé, plus vous identifiez facilement ce que ressentent les autres."];
+	var rang;
+function calculer1(){
+    var score = 0;
+    var nombreQuestion =10;
+for(var j=1 ; j< nombreQuestion+1 ; j++ ){
+    question = document.getElementsByName("q"+j);
+     /*pour verfier que tous les champs checked*/
+    if (!(question[0].checked )&& !(question[1].checked)){
+    alert("veulliez repondre à la question "+j +" SVP!")
+    return false;}
+for (var i=0; i < question.length ; i++){
+if (question[i].checked){
+    score = score + 
+    Number(question[i].value);
+}
+
+}
+}
+   res.textContent = score;
+   document.getElementById("resultat1").innerHTML="votre score est  "+ score +"/10";
+
+
+if (score < 3) {
+		rang = 1;
+	}
+ else if (score >= 8) {
+		rang = 0;
+	}
+    else {rang =2;}
+    document.getElementById("message").innerHTML = messages[rang];
+}
+
+
+var bouton1Element =
+    document.getElementById("bouton1");
+    bouton1Element.addEventListener("click",calculer1);
+
+</script>
+<!--l'affichage du message-->
+<div id = "after_submit">
+    <p id = "message"></p>
+</div>   
+<!-- retour-->
+<a href="page2.html"><button>précédent</button></a>
+<!--next test-->
+<a href="page4.html"><button>Suivant</button></a>
+
+</body>

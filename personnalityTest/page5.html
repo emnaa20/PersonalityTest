@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>  test de personalite1</title>
+    <link rel="stylesheet" href ="style.css"/>
+
+</head>
+<body>
+
+    <!--le 5eme caractere:sensiblite au contexte-->
+    <!--10 questions chaque question2 reponses:vrai ou faux-->
+<h2>SENSIBLITE AU CONTEXTE</h2>
+<!--ques1-->
+<p>1. On m’a déjà dit que j’étais en général
+    sensible aux sentiments d’autrui.</p>
+<form>
+<input type="radio" id="q1r1" name="q1" value="1">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q1r2" name="q1" value="0">
+<label for ="q1r1">faux</label><br>
+</form>
+<!--ques2-->
+<p>2. On m’a parfois dit que je m’étais conduit(e)
+    de manière socialement inadaptée,
+    ce qui m’a surpris(e).</p>
+<form>
+<input type="radio" id="q2r1" name="q2" value="0">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q2r2" name="q2" value="1">
+<label for ="q2r1">faux</label><br>
+</form>
+<!--ques3-->
+<p>3. Il m’est arrivé de connaître un échec
+    professionnel ou de me disputer avec un ami
+    parce que je me montrais trop cordial(e) avec
+    un supérieur ou trop jovial(e) avec un ami
+    en détresse.</p>
+<form>
+<input type="radio" id="q3r1" name="q3" value="0">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q3r2" name="q3" value="1">
+<label for ="q3r1">faux</label><br>
+</form>
+<!--ques4-->
+<p>4. Quand je parle aux gens, ils reculent parfois
+    pour mettre de la distance entre nous.</p>
+<form>
+<input type="radio" id="q4r1" name="q4" value="0">
+<label for="q4r1">vrai</label><br>
+<input type="radio" id="q4r2" name="q4" value="1">
+<label for ="q4r1">faux</label><br>
+</form>
+<!--ques5-->
+<p>5. Je me surprends souvent à me censurer parce
+    que je sens que ce que j’allais dire aurait été
+    malvenu étant donné la situation (par exemple,
+    avant de répondre à la question : « Mon chéri,
+    tu me trouves grosse dans ce pantalon ? »).</p>
+<form>
+<input type="radio" id="q5r1" name="q5" value="1">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q5r2" name="q5" value="0">
+<label for ="q5r1">faux</label><br>
+</form>
+<!--ques6-->
+<p>6. Quand je suis dans un lieu public comme
+    un restaurant, je prends bien soin de parler
+    moins fort..</p>
+<form>
+<input type="radio" id="q6r1" name="q6" value="1">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q6r2" name="q6" value="0">
+<label for ="q6r1">faux</label><br>
+</form>
+<!--ques7-->
+<p>7. En public, on me rappelle souvent de ne pas
+    mentionner le nom de gens qui pourraient
+    être présents.</p>
+<form>
+<input type="radio" id="q7r1" name="q7" value="1">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q7r2" name="q7" value="0">
+<label for ="q7r1">faux</label><br>
+</form>
+<!--ques8-->
+<p>8. Quand je suis déjà venu(e) dans un endroit
+    donné, je m’en souviens presque toujours,
+    même si c’est une autoroute par laquelle je suis
+    passé(e) bien des années auparavant.</p>
+<form>
+<input type="radio" id="q8r1" name="q8" value="1">
+<label for="q8r1">vrai</label><br>
+<input type="radio" id="q8r2" name="q8" value="0">
+<label for ="q8r1">faux</label><br>
+</form>
+<!--ques9-->
+<p>9. Quand quelqu’un a un comportement
+    déplacé (trop désinvolte au travail,
+    par exemple), je le remarque toujours.</p>
+<form>
+<input type="radio" id="q9r1" name="q9" value="1">
+<label for="q9r1">vrai</label><br>
+<input type="radio" id="q9r2" name="q9" value="0">
+<label for ="q9r1">faux</label><br>
+</form>
+<!--ques10-->
+<p>10. Mes proches me disent que je me conduis
+    toujours très bien avec les inconnus
+    et dans les situations peu familières.</p>
+<form>
+<input type="radio" id="q10r1" name="q10" value="1">
+<label for="q10r1">vrai</label><br>
+<input type="radio" id="q10r2" name="q10" value="0">
+<label for ="q10r1">faux</label><br>
+</form><br>
+
+<!---->
+<!--resultat du 5 eme caractere-->
+<button id="bouton1">Resultat</button>
+<p id="resultat1"></p>
+
+<script>
+/*resultat5:sensibilite au contexte*/
+var res = document.getElementById("resultat1");
+var messages = ["vous vous situez parmi les personnes déconnectées du contexte","vous situez parmi les personnes trés connectées du contexte","Plus votre score est élevé, plus vous réagissez de façon appropriée à l’environnement et à la situation."];
+	var rang;
+function calculer1(){
+    var score = 0;
+    var nombreQuestion =10;
+for(var j=1 ; j< nombreQuestion+1 ; j++ ){
+    question = document.getElementsByName("q"+j);
+    /*pour verfier que tous les champs checked*/
+    if (!(question[0].checked )&& !(question[1].checked)){
+    alert("veulliez repondre à la question "+j +" SVP!")
+    return false;}
+for (var i=0; i < question.length ; i++){
+if (question[i].checked){
+    score = score + 
+    Number(question[i].value);
+}
+
+}
+}
+   res.textContent = score;
+   document.getElementById("resultat1").innerHTML="votre score est  "+ score +"/10";
+
+
+if (score < 3) {
+		rang = 0;
+	}
+ else if (score >= 8) {
+		rang = 1;
+	}
+    else {rang =2;}
+    document.getElementById("message").innerHTML = messages[rang];
+}
+
+
+var bouton1Element =
+    document.getElementById("bouton1");
+    bouton1Element.addEventListener("click",calculer1);
+
+</script>
+<!--l'affichage du message-->
+<div id = "after_submit">
+    <p id = "message"></p>
+</div>   
+<!-- retour-->
+<a href="page4.html"><button>précédent</button></a>
+<!--next test-->
+<a href="page6.html"><button>Suivant</button></a>
+
+</body>
