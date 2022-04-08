@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>  test de personalite1</title>
+    <link rel="stylesheet" href ="style.css"/>
+
+</head>
+<body>
+
+    <!--le 4eme caractere:conscience de soi-->
+    <!--10 questions chaque question2 reponses:vrai ou faux-->
+<h2>CONSCIENCE DE SOI</h2>
+<!--ques1-->
+<p>1. Souvent, quand on me demande pourquoi
+    je suis triste ou en colère, je réponds
+    (ou je pense) : « Mais pas du tout ! »</p>
+<form>
+<input type="radio" id="q1r1" name="q1" value="0">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q1r2" name="q1" value="1">
+<label for ="q1r1">faux</label><br>
+</form>
+<!--ques2-->
+<p>2. Quand mes proches me demandent pourquoi
+    j’ai traité quelqu’un de façon brusque ou
+    méchante, je nie souvent m’être conduit(e) ainsi.</p>
+<form>
+<input type="radio" id="q2r1" name="q2" value="0">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q2r2" name="q2" value="1">
+<label for ="q2r1">faux</label><br>
+</form>
+<!--ques3-->
+<p>3. Souvent – plusieurs fois par mois –,
+    je m’aperçois que mon cœur bat très vite ou
+    très fort, et je ne sais absolument pas pourquoi.</p>
+<form>
+<input type="radio" id="q3r1" name="q3" value="0">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q3r2" name="q3" value="1">
+<label for ="q3r1">faux</label><br>
+</form>
+<!--ques4-->
+<p>4. Quand j’observe quelqu’un qui souffre, je
+    ressens sa douleur en moi, sur les plans
+    physique et émotionnel.</p>
+<form>
+<input type="radio" id="q4r1" name="q4" value="1">
+<label for="q4r1">vrai</label><br>
+<input type="radio" id="q4r2" name="q4" value="0">
+<label for ="q4r1">faux</label><br>
+</form>
+<!--ques5-->
+<p>5. En général, je sais de façon certaine
+    ce que je ressens et je peux traduire mes
+    émotions en mots.</p>
+<form>
+<input type="radio" id="q5r1" name="q5" value="1">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q5r2" name="q5" value="0">
+<label for ="q5r1">faux</label><br>
+</form>
+<!--ques6-->
+<p>6. Parfois, je remarque en moi des douleurs
+    sans savoir d’où elles viennent.</p>
+<form>
+<input type="radio" id="q6r1" name="q6" value="0">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q6r2" name="q6" value="1">
+<label for ="q6r1">faux</label><br>
+</form>
+<!--ques7-->
+<p>7. J’aime passer du temps à ne rien faire,
+    détendu(e), simplement pour ressentir ce qui se
+    passe en moi.</p>
+<form>
+<input type="radio" id="q7r1" name="q7" value="1">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q7r2" name="q7" value="0">
+<label for ="q7r1">faux</label><br>
+</form>
+<!--ques8-->
+<p>8. Je crois que j’habite bien mon corps et je m’y
+    sens chez moi, à l’aise.</p>
+<form>
+<input type="radio" id="q8r1" name="q8" value="1">
+<label for="q8r1">vrai</label><br>
+<input type="radio" id="q8r2" name="q8" value="0">
+<label for ="q8r1">faux</label><br>
+</form>
+<!--ques9-->
+<p>9. Je suis fortement orienté(e) vers le monde
+    extérieur et je remarque rarement ce qui se
+    passe dans mon corps.</p>
+<form>
+<input type="radio" id="q9r1" name="q9" value="0">
+<label for="q9r1">vrai</label><br>
+<input type="radio" id="q9r2" name="q9" value="1">
+<label for ="q9r1">faux</label><br>
+</form>
+<!--ques10-->
+<p>10. Quand je fais de l’exercice, je suis très
+    sensible aux changements que cela produit
+    dans mon corps.</p>
+<form>
+<input type="radio" id="q10r1" name="q10" value="1">
+<label for="q10r1">vrai</label><br>
+<input type="radio" id="q10r2" name="q10" value="0">
+<label for ="q10r1">faux</label><br>
+</form><br>
+
+<!---->
+<!--resultat du 4 eme caractere-->
+<button id="bouton1">Resultat</button>
+<p id="resultat1"></p>
+
+<script>
+/*resultat4:conscince de soi*/
+var res = document.getElementById("resultat1");
+var messages = ["vous êtes conscient(e) de vous-même" , "vous êtes opaque à vous-même","Plus votre score est élevé, plus vous êtes conscient(e) de vos propres sensations et émotions"];
+	var rang;
+function calculer1(){
+    var score = 0;
+    var nombreQuestion =10;
+for(var j=1 ; j< nombreQuestion+1 ; j++ ){
+    question = document.getElementsByName("q"+j);
+     /*pour verfier que tous les champs checked*/
+    if (!(question[0].checked )&& !(question[1].checked)){
+    alert("veulliez repondre à la question "+j +" SVP!")
+    return false;}
+for (var i=0; i < question.length ; i++){
+if (question[i].checked){
+    score = score + 
+    Number(question[i].value);
+}
+
+}
+}
+   res.textContent = score;
+   document.getElementById("resultat1").innerHTML="votre score est  "+ score +"/10";
+
+
+if (score < 3) {
+		rang = 1;
+	}
+ else if (score >= 8) {
+		rang = 0;
+	}
+    else (rang =2);
+    document.getElementById("message").innerHTML = messages[rang];
+}
+
+
+var bouton1Element =
+    document.getElementById("bouton1");
+    bouton1Element.addEventListener("click",calculer1);
+
+</script>
+<!--l'affichage du message-->
+<div id = "after_submit">
+    <p id = "message"></p>
+</div>   
+<!-- retour-->
+<a href="page3.html"><button>précédent</button></a>
+<!--next test-->
+<a href="page5.html"><button>Suivant</button></a>
+
+</body>

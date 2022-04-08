@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>  test de personalite1</title>
+    <link rel="stylesheet" href ="style.css"/>
+
+</head>
+<body>
+
+    <!--le 6eme caractere:attetion-->
+    <!--10 questions chaque question2 reponses:vrai ou faux-->
+<h2>ATTENTION</h2>
+<!--ques1-->
+<p>1. Je suis capable de me concentrer
+    dans un environnement bruyant.</p>
+<form>
+<input type="radio" id="q1r1" name="q1" value="1">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q1r2" name="q1" value="0">
+<label for ="q1r1">faux</label><br>
+</form>
+<!--ques2-->
+<p>2. Quand je suis dans une situation où il se passe
+    beaucoup de choses et où les stimulations
+    sensorielles sont nombreuses, comme lors
+    d’une fête ou dans la foule d’un aéroport,
+    j’arrive à ne pas me laisser distraire
+    par ce qui se passe devant moi.</p>
+<form>
+<input type="radio" id="q2r1" name="q2" value="1">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q2r2" name="q2" value="0">
+<label for ="q2r1">faux</label><br>
+</form>
+<!--ques3-->
+<p>3. Si je décide de concentrer mon attention sur
+    une tâche particulière, j’en suis en général
+    capable.</p>
+<form>
+<input type="radio" id="q3r1" name="q3" value="1">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q3r2" name="q3" value="0">
+<label for ="q3r1">faux</label><br>
+</form>
+<!--ques4-->
+<p>4. Si je suis chez moi et que je tente de travailler,
+    le bruit de la télévision ou des gens qui parlent me
+    perturbe énormément.</p>
+<form>
+<input type="radio" id="q4r1" name="q4" value="0">
+<label for="q4r1">vrai</label><br>
+<input type="radio" id="q4r2" name="q4" value="1">
+<label for ="q4r1">faux</label><br>
+</form>
+<!--ques5-->
+<p>5. Si je reste immobile ne serait-ce que quelques
+    instants, un flux de pensées me vient à l’esprit et je
+    me mets à suivre plusieurs fils, souvent sans savoir
+    comment chacun a commencé.</p>
+<form>
+<input type="radio" id="q5r1" name="q5" value="0">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q5r2" name="q5" value="1">
+<label for ="q5r1">faux</label><br>
+</form>
+<!--ques6-->
+<p>6. Si je suis perturbé(e) par un événement imprévu,
+    je suis capable de reconcentrer mon attention sur
+    ce que je faisais avant d’être interrompu(e).</p>
+<form>
+<input type="radio" id="q6r1" name="q6" value="1">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q6r2" name="q6" value="0">
+<label for ="q6r1">faux</label><br>
+</form>
+<!--ques7-->
+<p>7. À des moments de calme relatif, quand je suis
+    assis(e) dans un train, dans un autobus, ou quand
+    je fais la queue dans un magasin, je remarque
+    beaucoup de choses autour de moi.</p>
+<form>
+<input type="radio" id="q7r1" name="q7" value="1">
+<label for="q1r1">vrai</label><br>
+<input type="radio" id="q7r2" name="q7" value="0">
+<label for ="q7r1">faux</label><br>
+</form>
+<!--ques8-->
+<p>8. Quand un projet important exige toute mon
+    attention, j’essaye de m’installer dans un endroit
+    le plus tranquille possible.</p>
+<form>
+<input type="radio" id="q8r1" name="q8" value="0">
+<label for="q8r1">vrai</label><br>
+<input type="radio" id="q8r2" name="q8" value="1">
+<label for ="q8r1">faux</label><br>
+</form>
+<!--ques9-->
+<p>9. Mon attention a tendance à se laisser capter par
+    les stimuli et événements de mon environnement, et
+    j’ai du mal à me reconcentrer quand cela se produit.</p>
+<form>
+<input type="radio" id="q9r1" name="q9" value="0">
+<label for="q9r1">vrai</label><br>
+<input type="radio" id="q9r2" name="q9" value="1">
+<label for ="q9r1">faux</label><br>
+</form>
+<!--ques10-->
+<p>10. Je n’ai aucun mal à mener une discussion
+    personnelle au milieu d’une foule, lors d’un
+    cocktail ou dans une grande pièce ; dans un tel
+    environnement, je peux faire abstraction de tous
+    les autres, même si, en me concentrant, j’arrive
+    à distinguer ce qu’ils disent.</p>
+<form>
+<input type="radio" id="q10r1" name="q10" value="1">
+<label for="q10r1">vrai</label><br>
+<input type="radio" id="q10r2" name="q10" value="0">
+<label for ="q10r1">faux</label><br>
+</form><br>
+
+<!---->
+<!--resultat du 6 eme caractere-->
+<button id="bouton1">Resultat</button>
+<p id="resultat1"></p>
+
+<script>
+/*resultat6:attetion*/
+var res = document.getElementById("resultat1");
+var messages = ["vous avez tendance à être peu concentré(e)." ,"vous avez un bon niveau global d’attention","Plus votre score est élevé, plus vous savez vous concentrer."];
+	var rang;
+function calculer1(){
+    var score = 0;
+    var nombreQuestion =10;
+for(var j=1 ; j< nombreQuestion+1 ; j++ ){
+    question = document.getElementsByName("q"+j);
+    /*pour verfier que tous les champs checked*/
+    if (!(question[0].checked )&& !(question[1].checked)){
+    alert("veulliez repondre à la question "+j +" SVP!")
+    return false;}
+for (var i=0; i < question.length ; i++){
+if (question[i].checked){
+    score = score + 
+    Number(question[i].value);
+}
+
+}
+}
+   res.textContent = score;
+   document.getElementById("resultat1").innerHTML="votre score est  "+ score +"/10";
+
+
+if (score < 3) {
+		rang = 0;
+	}
+ else if (score >= 8) {
+		rang = 1;
+	}
+    else {rang =2;}
+    document.getElementById("message").innerHTML = messages[rang];
+}
+
+
+var bouton1Element =
+    document.getElementById("bouton1");
+    bouton1Element.addEventListener("click",calculer1);
+
+</script>
+<!--l'affichage du message-->
+<div id = "after_submit">
+    <p id = "message"></p>
+</div>   
+<!-- retour-->
+<a href="page5.html"><button>précédent</button></a>
+<!--next test-->
+<a href="page7.html"><button>Suivant</button></a>
+</body>
